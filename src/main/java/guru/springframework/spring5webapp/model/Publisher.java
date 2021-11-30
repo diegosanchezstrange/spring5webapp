@@ -11,15 +11,15 @@ public class Publisher
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long		id;
 
-	public String   	name;
-	public String   	address;
-	public String   	city;
-	public String   	state;
-	public int      	zip;
+	private String   	name;
+	private String   	address;
+	private String   	city;
+	private String   	state;
+	private int      	zip;
 
 	@OneToMany
 	@JoinColumn(name = "publisher_id")
-	public Set<Book>	books = new HashSet<>();
+	private Set<Book>	books = new HashSet<>();
 
 	public Publisher()
 	{
@@ -32,6 +32,16 @@ public class Publisher
 		this.city = city;
 		this.state = state;
 		this.zip = zip;
+	}
+
+	public Long getId()
+	{
+		return id;
+	}
+
+	public void setId(Long id)
+	{
+		this.id = id;
 	}
 
 	public String getName()

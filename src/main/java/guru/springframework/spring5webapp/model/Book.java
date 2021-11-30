@@ -11,8 +11,8 @@ public class Book
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long        id;
 
-	public String       title;
-	public String       isbn;
+	private String       title;
+	private String       isbn;
 
 	@ManyToOne
 	private Publisher	publisher;
@@ -30,6 +30,16 @@ public class Book
 	{
 		this.title = title;
 		this.isbn = isbn;
+	}
+
+	public Long getId()
+	{
+		return id;
+	}
+
+	public void setId(Long id)
+	{
+		this.id = id;
 	}
 
 	public String getTitle()
@@ -79,7 +89,6 @@ public class Book
 				"id=" + id +
 				", title='" + title + '\'' +
 				", isbn='" + isbn + '\'' +
-				", authors=" + authors +
 				'}';
 	}
 
