@@ -7,80 +7,81 @@ import java.util.Set;
 @Entity
 public class Author
 {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long        id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long        id;
 
-    public String       firstName;
-    public String       lastaName;
-    @ManyToMany(mappedBy = "authors")
-    private Set<Book> books = new HashSet<>();
+	public String       firstName;
+	public String       lastaName;
 
-    public Author()
-    {
-    }
+	@ManyToMany(mappedBy = "authors")
+	private Set<Book> books = new HashSet<>();
 
-    public Author(String firstName, String lastaName)
-    {
-        this.firstName = firstName;
-        this.lastaName = lastaName;
-    }
+	public Author()
+	{
+	}
 
-    public String getFirstName()
-    {
-        return firstName;
-    }
+	public Author(String firstName, String lastaName)
+	{
+		this.firstName = firstName;
+		this.lastaName = lastaName;
+	}
 
-    public void setFirstName(String firstName)
-    {
-        this.firstName = firstName;
-    }
+	public String getFirstName()
+	{
+		return firstName;
+	}
 
-    public String getLastaName()
-    {
-        return lastaName;
-    }
+	public void setFirstName(String firstName)
+	{
+		this.firstName = firstName;
+	}
 
-    public void setLastaName(String lastaName)
-    {
-        this.lastaName = lastaName;
-    }
+	public String getLastaName()
+	{
+		return lastaName;
+	}
 
-    public Set<Book> getBooks()
-    {
-        return books;
-    }
+	public void setLastaName(String lastaName)
+	{
+		this.lastaName = lastaName;
+	}
 
-    public void setBooks(Set<Book> books)
-    {
-        this.books = books;
-    }
+	public Set<Book> getBooks()
+	{
+		return books;
+	}
 
-    @Override
-    public String toString()
-    {
-        return "Author{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastaName='" + lastaName + '\'' +
-                ", books=" + books +
-                '}';
-    }
+	public void setBooks(Set<Book> books)
+	{
+		this.books = books;
+	}
 
-    @Override
-    public boolean equals(Object o)
-    {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+	@Override
+	public String toString()
+	{
+		return "Author{" +
+				"id=" + id +
+				", firstName='" + firstName + '\'' +
+				", lastaName='" + lastaName + '\'' +
+				", books=" + books +
+				'}';
+	}
 
-        Author author = (Author) o;
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
 
-        return id != null ? id.equals(author.id) : author.id == null;
-    }
+		Author author = (Author) o;
 
-    @Override
-    public int hashCode()
-    {
-        return id != null ? id.hashCode() : 0;
-    }
+		return id != null ? id.equals(author.id) : author.id == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return id != null ? id.hashCode() : 0;
+	}
 }
